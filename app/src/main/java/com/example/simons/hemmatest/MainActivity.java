@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,8 +44,13 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
+        
+        // om många gör switch
         if (id == R.id.action_settings) {
-            return true;
+            Toast.makeText(MainActivity.this, "Du valde Settings", Toast.LENGTH_SHORT).show();
+        }
+        else if (id == R.id.action_about){
+            Toast.makeText(MainActivity.this, "Du valde about", Toast.LENGTH_SHORT).show();
         }
 
         return super.onOptionsItemSelected(item);
