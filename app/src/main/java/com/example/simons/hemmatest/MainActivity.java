@@ -1,5 +1,6 @@
 package com.example.simons.hemmatest;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -23,8 +24,16 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+               // Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                 //       .setAction("Action", null).show();
+
+                Intent useApp = new Intent(Intent.ACTION_SEND);
+                useApp.setType("text/mail");
+                useApp.putExtra(Intent.EXTRA_EMAIL, new String[]{"borgstrom.simon@gmail.com"});
+                useApp.putExtra(Intent.EXTRA_SUBJECT, "Test att skicka från app");
+                useApp.putExtra(Intent.EXTRA_TEXT, "Robin är fan sämst");
+
+                startActivity(Intent.createChooser(useApp, "Välj Epostprogram"));
             }
         });
     }
@@ -50,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Du valde Settings", Toast.LENGTH_SHORT).show();
         }
         else if (id == R.id.action_about){
+            Intent i = new Intent(MainActivity.this, Main2Activity.class);
+            startActivity(i);
+
             Toast.makeText(MainActivity.this, "Du valde about", Toast.LENGTH_SHORT).show();
         }
 

@@ -2,5 +2,7 @@
     <string name="app_name">HemmaTest</string>
     <string name="action_settings">Settings</string>
     <string name="action_about">About</string>
+    <string name="title_activity_main2">HemmaTestActivity2</string>
+    <string name="AboutTesxt">About</string>
 
 </resources>
